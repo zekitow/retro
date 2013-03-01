@@ -1,0 +1,29 @@
+<% if @worst %>
+  <div class="row-fluid">
+    <div class="span12">
+      <h4>Items da ultima retrospectiva:</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th>Ação</th>
+            <th width="100">Corrigido?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @worst.bads.each do |bad| %>
+            <tr class="warning">
+              <td><%= bad.description %></td>
+              <td><%= bad.action %></td>
+              <td>
+                <%= link_to 'Sim',  retrospective_bad_to_good_path(@retrospective, bad), class: 'btn btn-small btn-success' %>
+                <%= link_to 'Não',  retrospective_bad_keeps_path(@retrospective, bad), class: 'btn btn-small btn-danger' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--/div:span5 -->
+  </div><!-- div:row -->
+<% end %>
+
