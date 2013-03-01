@@ -1,0 +1,15 @@
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @retrospective.goods.each do |good| %>
+          <tr class="success">
+            <td><%= good.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+

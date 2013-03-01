@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if !params[:user][:password].blank? and @user.save
         session[:user] = @user
-        format.html { redirect_to "/users", notice: 'Sua senha foi alterada!' }
+        format.html { redirect_to "/retrospectives", notice: 'Sua senha foi alterada!' }
       else
         format.html { render action: "password", notice: 'Suas senhas não conferem!' }
       end
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to "/users", notice: 'Seu dados foram atualizados!' }
+        format.html { redirect_to "/retrospectives", notice: 'Seu dados foram atualizados!' }
       else
         format.html { render action: "edit" }
       end

@@ -1,0 +1,17 @@
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @retrospective.bads.each do |bad| %>
+          <tr class="error">
+            <td><%= bad.description %></td>
+            <td><%= bad.action %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+

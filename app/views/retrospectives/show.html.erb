@@ -13,103 +13,14 @@
 <div class="row-fluid">
   <div class="span6">
     <h4><a href="#addBom" role="button" class="btn btn-small btn-success" data-toggle="modal">Bom</a></h4>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Descrição</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @retrospective.goods.each do |good| %>
-          <tr class="success">
-            <td><%= good.description %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'list_goods' %>
   </div><!-- div:span6 -->
   <div class="span6">
     <h4><a href="#addRuim" role="button" class="btn btn-small btn-danger" data-toggle="modal">Ruim</a></h4>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Descrição</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @retrospective.bads.each do |bad| %>
-          <tr class="error">
-            <td><%= bad.description %></td>
-            <td><%= bad.action %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'list_bads' %>
 
   </div><!-- div:span6 -->
 </div><!-- div:row -->
 
-<%= form_for([@retrospective, @good]) do |f| %>
-  <%= f.hidden_field :retrospective_id, :value => @retrospective.id %>
-  <div id="addBom" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h2>Bom</h2>
-    </div>
-    <div class="modal-body">
-        <% if @good.errors.any? %>
-          <div class="alert alert-error">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <h4>Atenção!</h4>
-            Os seguintes erros foram encontrados:
-            <ul>
-              <% @good.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <div class="field">
-          <%= f.text_field :description, placeholder:"Descrição", class: "span5" %>
-        </div>
-    </div>
-    <div class="modal-footer">
-      <%= f.submit "Salvar", class: "btn btn-primary" %>
-    </div>
-  </div>
-<% end %>
-
-<%= form_for([@retrospective, @bad]) do |f| %>
-  <%= f.hidden_field :retrospective_id, :value => @retrospective.id %>
-  <div id="addRuim" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h2>Ruim</h2>
-    </div>
-    <div class="modal-body">
-        <% if @bad.errors.any? %>
-          <div class="alert alert-error">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <h4>Atenção!</h4>
-            Os seguintes erros foram encontrados:
-            <ul>
-              <% @bad.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <div class="field">
-          <%= f.text_field :description, placeholder:"Descrição", class: "span5" %>
-        </div>
-        <div class="field">
-          <%= f.text_field :action, placeholder:"Ação", class: "span5" %>
-        </div>
-    </div>
-    <div class="modal-footer">
-      <%= f.submit "Salvar", class: "btn btn-primary" %>
-    </div>
-  </div>
-<% end %>
-
+<%= render 'new_good' %>
+<%= render 'new_bad' %>

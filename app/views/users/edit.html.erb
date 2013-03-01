@@ -1,12 +1,12 @@
 <ul class="breadcrumb">
-  <li><%= link_to @current_user.name, users_path %> <span class="divider">/</span></li>
+  <li><%= link_to @current_user.name, retrospectives_path %> <span class="divider">/</span></li>
   <li><b>Perfil</b></li>
 </ul>
 <div class="row-fluid">
-  <div class="span6">
-    <img src="/assets/fry.png"  title="<%= @current_user.name %>" alt="Ralph Steadman Artwork"/>
-  </div><!-- div:span10 -->
   <div class="span5">
+    <img src="/assets/nelson.png"  title="<%= @current_user.name %>" alt="Ralph Steadman Artwork"/>
+  </div><!-- div:span10 -->
+  <div class="span6">
     <h3><%= @current_user.name %></h3>
     <legend></legend>
     <%= form_for(@user, html: {class: "nav-form"}) do |f| %>

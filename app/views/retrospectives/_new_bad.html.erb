@@ -1,0 +1,33 @@
+<%= form_for([@retrospective, @bad]) do |f| %>
+  <%= f.hidden_field :retrospective_id, :value => @retrospective.id %>
+  <div id="addRuim" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h2>Ruim</h2>
+    </div>
+    <div class="modal-body">
+        <% if @bad.errors.any? %>
+          <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>Atenção!</h4>
+            Os seguintes erros foram encontrados:
+            <ul>
+              <% @bad.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <%= f.text_field :description, placeholder:"Descrição", class: "span5" %>
+        </div>
+        <div class="field">
+          <%= f.text_field :action, placeholder:"Ação", class: "span5" %>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Salvar", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
