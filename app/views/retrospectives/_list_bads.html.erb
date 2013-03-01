@@ -1,4 +1,4 @@
-    <table class="table table-hover">
+    <table class="table">
       <thead>
         <tr>
           <th>Descrição</th>
@@ -7,7 +7,7 @@
       </thead>
       <tbody>
         <% @retrospective.bads.each do |bad| %>
-          <tr class="error">
+          <tr class="bad">
             <td><%= bad.description %></td>
             <td><%= bad.action %></td>
           </tr>

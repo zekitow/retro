@@ -1,4 +1,4 @@
-    <table class="table table-hover">
+    <table class="table">
       <thead>
         <tr>
           <th>Descrição</th>
@@ -6,7 +6,7 @@
       </thead>
       <tbody>
         <% @retrospective.goods.each do |good| %>
-          <tr class="success">
+          <tr class="good">
             <td><%= good.description %></td>
           </tr>
         <% end %>

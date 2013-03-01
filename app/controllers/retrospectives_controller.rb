@@ -29,6 +29,7 @@ class RetrospectivesController < ApplicationController
   # GET /retrospectives.json
   def show
     @retrospective = Retrospective.find(params[:id])
+    @worst = Retrospective.where({:user_id => @current_user.id}).order('created_at desc ').second.bads
     @good = Good.new
     @bad  = Bad.new
   end

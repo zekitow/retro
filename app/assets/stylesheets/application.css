@@ -17,7 +17,7 @@ body, body#home { background:url('/assets/bg-grey-wood.jpg') repeat #333;}
 footer {color:#DDD;text-align:center}
 body#home a {color: #08C;text-decoration: none;background:transparent;}
 
-.content {background-color:white;padding: 30px;webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;-webkit-border-radius: 6px;-moz-border-radius: 6px;} 
+.content {background-color:white;padding: 30px;webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;-webkit-border-radius: 6px;-moz-border-radius: 6px;}
 .center {text-align:center}
 .right  {text-align:right}
 .left   {text-align:left}
@@ -49,3 +49,6 @@ div.field,
 div.actions {
   margin-bottom: 10px;
 }
+tr.warning { background-color: #FFFF99 }
+tr.bad     { background-color: #FFB6C1 }
+tr.good    { background-color: #90EE90 }

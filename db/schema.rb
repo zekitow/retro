@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(:version => 20120904005000) do
     t.boolean  "solved",           :default => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
-    t.integer  "retrospective_id"
+    t.integer  "retrospective_id",                    :null => false
   end
 
   create_table "goods", :force => true do |t|
     t.string   "description"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.integer  "retrospective_id"
+    t.integer  "retrospective_id", :null => false
   end
 
   create_table "retrospectives", :force => true do |t|
