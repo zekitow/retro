@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fosformol</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body id="home">
+    <div class="container">
+      <div class="hero-unit">
+        <div class="page-header">
+          <div class="row-fluid">
+            <ul class="breadcrumb">
+              <li><%= link_to 'Fosformol', root_path, class: "btn btn-link" %><span class="divider">/</span></li>
+              <li><b>Novo Usuário</b></li>
+            </ul>
+            <div class="span5">
+              <img src="/assets/homer_doh.png" title="Doh!"/>
+            </div><!-- /div:span5 -->
+            <div class="span6">
+              <h3>Cadastre-se.</h3>
+              <legend></legend>
+              <%= render 'form' %>
+              <div class="controls">
+                <span class="help-block">Você <span class="label label-important">não</span> receberá um e-mail para ativar sua conta.</span>
+              </div><!-- div.controls -->
+            </div><!-- /div:span2 -->
+          </div><!-- div:page-header -->
+        </div><!-- div.row-fluid -->
+      </div><!--/div:hero-unit-->
+    </div><!-- /div:container-->
+    <footer>
+      <div class="container">
+        <p><span class="label label-info">Open-Friday</span></p>
+      </div><!-- /div:container-->
+    </footer>
+  </body>
+</html>

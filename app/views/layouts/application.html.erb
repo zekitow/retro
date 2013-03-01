@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fosformol</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'Fosformol', users_path, :class => "brand" %>
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
+              <li class="divider-vertical"></li>
+              <li><%= link_to @current_user.name, edit_user_path(@current_user) %></
+              <li class="divider"></li>
+              <li><%= link_to "Sair", logout_path %></li>
+            </ul><!-- /nav pull-right -->
+          </div><!-- /div.nav-collapse -->
+        </div>
+      </div><!-- /div:container -->
+    </div>
+    <div class="container">
+      <div class="content">
+        <% if notice %>
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>Yeah!</h4>
+            <%=notice%>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div><!-- /div:content-->
+    </div><!-- /div:container-->
+    <footer>
+      <div class="container">
+        <br/>
+        <p><span class="label label-info">Open-Friday</span></p>
+      </div><!-- /div:container-->
+    </footer>
+  </body>
+</html>

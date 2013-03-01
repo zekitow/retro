@@ -1,0 +1,19 @@
+defaults: &defaults
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: retro
+  username: root
+  password:
+
+development:
+  <<: *defaults
+  database: retro_dev
+
+test:
+  <<: *defaults
+  database: retro_test
+
+production:
+  <<: *defaults
+

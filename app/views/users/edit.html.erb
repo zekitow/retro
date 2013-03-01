@@ -1,0 +1,40 @@
+<ul class="breadcrumb">
+  <li><%= link_to @current_user.name, users_path %> <span class="divider">/</span></li>
+  <li><b>Perfil</b></li>
+</ul>
+<div class="row-fluid">
+  <div class="span6">
+    <img src="/assets/dog.png"  title="<%= @current_user.name %>" alt="Ralph Steadman Artwork"/>
+  </div><!-- div:span10 -->
+  <div class="span5">
+    <h3><%= @current_user.name %></h3>
+    <legend></legend>
+    <%= form_for(@user, html: {class: "nav-form"}) do |f| %>
+
+      <% if @user.errors.any? %>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <h4>Atenção!</h4>
+          Os seguintes erros foram encontrados:
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= f.text_field :name, placeholder:"Nome", class: "span8" %> 
+      </div>
+      <div class="field">
+        <%= f.text_field :email, placeholder:"E-mail", class: "span8"  %> 
+      </div>
+      <div class="field">
+        <% #= f.date_select :logged_at %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Salvar", class: "btn btn-primary btn-inverse" %>
+      </div>
+    <% end %>
+  </div><!-- div:span3 -->
+</div><!-- div:row -->
