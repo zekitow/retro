@@ -3,14 +3,6 @@ class UsersController < ApplicationController
 
   before_filter :ensure_authentication, :only => [:edit, :update, :destroy, :index, :password, :password_update]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @user = current_user
-    respond_to do |format|
-      format.html # index.html.erb
-    end
-  end
 
   # GET /users/new
   # GET /users/new.json
@@ -79,7 +71,7 @@ class UsersController < ApplicationController
 
     if user
       session[:user] = user
-      redirect_to "/users", notice: "Olá #{user.name}, bem vindo ao Retrospectiva!"
+      redirect_to "/retrospectives", notice: "Olá #{user.name}, bem vindo ao Fosformol!"
     else
       redirect_to root_url, notice: 'Usuário ou senha inválida'
     end
@@ -89,7 +81,7 @@ class UsersController < ApplicationController
     user = User.find(current_user.id)
     user.save
     session[:user] = nil
-    redirect_to root_url, :alert => "Obrigado por ter usado o Retrospectiva!"
+    redirect_to root_url, :alert => "Obrigado por ter usado o Fosformol!"
   end
 
 end

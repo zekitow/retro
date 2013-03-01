@@ -1,18 +1,15 @@
 RetroRails::Application.routes.draw do
 
-
-
   root :to => "home#index"
 
-  resources :projects
+  resources :retrospectives
   resources :users do
-    resources :projects
+    resources :retrospectives
   end
 
-  resources :projects do
-    resources :items do
-      resources :tasks
-    end
+  resources :retrospectives do
+    resources :goods
+    resources :bads
   end
 
   match "/signup" => "users#new"

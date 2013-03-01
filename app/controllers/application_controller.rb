@@ -13,12 +13,4 @@ class ApplicationController < ActionController::Base
   def current_user
     session[:user]
   end
-
-  def current_project
-    @project = Project.find(params[:project_id])
-  end
-
-  def current_item
-    @item = Item.find(params[:item_id])
-  end
 end

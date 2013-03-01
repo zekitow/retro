@@ -1,0 +1,35 @@
+<ul class="breadcrumb">
+  <li><%= link_to @current_user.name, retrospectives_path %> <span class="divider">/</span></li>
+  <li><b>Retrospectivas</b></li>
+  <!--li><%= link_to "Retrospectivas", user_retrospectives_path(@current_user) %> <span class="divider">/</span></li-->
+</ul>
+<div class="row-fluid">
+  <div class="span6">
+    <img src="/assets/moe.png"  title="<%= @current_user.name %>" alt="Ralph Steadman Artwork"/>
+  </div><!-- div:span6 -->
+  <div class="span5">
+    <div class="page-header">
+      <h3>Retrospectivas</h3>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Bom</th>
+          <th>Ruim</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @retrospectives.each do |retro| %>
+          <tr>
+            <td><%= link_to retro.sprint_number, retrospective_path(retro)  %></td>
+            <td><%= retro.try(:goods).try(:count) %></td>
+            <td><%= retro.try(:bads).try(:count) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br />
+  </div><!-- div:span3 -->
+  <%= link_to 'Nova Retrospectiva', new_retrospective_path, :class => "btn btn-inverse btn-large" %>
+</div><!-- div:row -->

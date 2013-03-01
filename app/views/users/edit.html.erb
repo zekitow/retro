@@ -4,7 +4,7 @@
 </ul>
 <div class="row-fluid">
   <div class="span6">
-    <img src="/assets/dog.png"  title="<%= @current_user.name %>" alt="Ralph Steadman Artwork"/>
+    <img src="/assets/fry.png"  title="<%= @current_user.name %>" alt="Ralph Steadman Artwork"/>
   </div><!-- div:span10 -->
   <div class="span5">
     <h3><%= @current_user.name %></h3>
@@ -24,10 +24,10 @@
         </div>
       <% end %>
       <div class="field">
-        <%= f.text_field :name, placeholder:"Nome", class: "span8" %> 
+        <%= f.text_field :name, placeholder:"Nome", class: "span8" %>
       </div>
       <div class="field">
-        <%= f.text_field :email, placeholder:"E-mail", class: "span8"  %> 
+        <%= f.text_field :email, placeholder:"E-mail", class: "span8"  %>
       </div>
       <div class="field">
         <% #= f.date_select :logged_at %>

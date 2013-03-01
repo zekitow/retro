@@ -21,6 +21,8 @@
               <li class="divider-vertical"></li>
               <li><%= link_to @current_user.name, edit_user_path(@current_user) %></
               <li class="divider"></li>
+              <li><%= link_to "Alterar senha", password_path %></li>
+              <li class="divider"></li>
               <li><%= link_to "Sair", logout_path %></li>
             </ul><!-- /nav pull-right -->
           </div><!-- /div.nav-collapse -->

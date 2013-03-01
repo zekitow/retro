@@ -1,0 +1,34 @@
+<ul class="breadcrumb">
+  <li><%= link_to @current_user.name, users_path %> <span class="divider">/</span></li>
+  <li><%= link_to "Retrospectivas", user_retrospectives_path(@current_user) %> <span class="divider">/</span></li>
+  <li><b>Nova</b></li>
+</ul>
+
+<div class="page-header">
+  <h3>Nova Retrospectiva</h3>
+</div>
+<%= form_for(@retrospective, html: {class: "nav-form"}) do |f| %>
+
+  <% if @retrospective.errors.any? %>
+    <div class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <h4>Atenção!</h4>
+      Os seguintes erros foram encontrados:
+      <ul>
+      <% @retrospective.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div class="control-group">
+      <label class="control-label" for="inputEmail">Email</label>
+      <div class="controls">
+        <input type="text" id="inputEmail" placeholder="Email">
+      </div>
+    </div>
+    Sprint #: <%= f.text_field :sprint_number, placeholder:"Número", class: "span8" %>
+  </div>
+<% end %>
