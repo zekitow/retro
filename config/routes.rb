@@ -12,9 +12,12 @@ RetroRails::Application.routes.draw do
     resources :bads
   end
 
-  match "/signup" => "users#new"
-  match "/signin" => "users#authenticate"
-  match "/logout" => "users#logout"
-  match "/password" => "users#password"
+  get "/retrospectives/:retrospective_id/bads/:id/keep" => "bads#keep", as: :retrospective_bad_keeps
+  get "/retrospectives/:retrospective_id/bads/:id/good" => "bads#to_good", as: :retrospective_bad_to_good
+
+  match "/signup"          => "users#new"
+  match "/signin"          => "users#authenticate"
+  match "/logout"          => "users#logout"
+  match "/password"        => "users#password"
   match "/password_update" => "users#password_update"
 end

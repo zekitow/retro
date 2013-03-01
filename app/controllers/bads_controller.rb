@@ -9,4 +9,24 @@ class BadsController < ApplicationController
     bad.save
     redirect_to retrospective_path(params[:retrospective_id])
   end
+
+  # GET /bads/keep
+  def keep
+    bad = Bad.find(params[:id])
+    bad.retrospective_id = params[:retrospective_id]
+    bad.save
+    redirect_to retrospective_path(params[:retrospective_id])
+  end
+
+  # GET /bads/keep
+  def to_good
+    bad = Bad.find(params[:id])
+    good = Good.new
+    good.retrospective_id = params[:retrospective_id]
+    good.description = "Corrigido: #{bad.description}!"
+    good.save
+    bad.destroy
+    redirect_to retrospective_path(params[:retrospective_id])
+  end
+
 end

@@ -10,28 +10,7 @@
     </div>
   </div><!--/div:span5 -->
 </div><!-- div:row -->
-<div class="row-fluid">
-  <div class="span12">
-    <h4>Items da ultima retrospectiva:</h4>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Descrição</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @worst.each do |bad| %>
-          <tr class="warning">
-            <td><%= bad.description %></td>
-            <td><%= bad.action %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div><!--/div:span5 -->
-</div><!-- div:row -->
-
+<%= render 'list_worst' %>
 <div class="row-fluid">
   <div class="span6">
     <h4><a href="#addBom" role="button" class="btn btn-small btn-success" data-toggle="modal">Bom</a></h4>
