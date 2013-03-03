@@ -3,6 +3,7 @@
         <tr>
           <th>Descrição</th>
           <th>Ação</th>
+          <th width="20"></th>
         </tr>
       </thead>
       <tbody>
@@ -10,6 +11,7 @@
           <tr class="bad">
             <td><%= bad.description %></td>
             <td><%= bad.action %></td>
+            <td><%= link_to '', retrospective_bad_url(@retrospective, bad), method: :delete, data: { confirm: "Tem certeza?" }, class: 'icon-remove' %></td>
           </tr>
         <% end %>
       </tbody>

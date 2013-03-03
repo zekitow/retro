@@ -29,4 +29,10 @@ class BadsController < ApplicationController
     redirect_to retrospective_path(params[:retrospective_id])
   end
 
+  # DELETE /bads
+  def destroy
+    bad = Bad.find(params[:id])
+    bad.destroy
+    redirect_to retrospective_path(params[:retrospective_id])
+  end
 end

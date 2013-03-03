@@ -2,12 +2,14 @@
       <thead>
         <tr>
           <th>Descrição</th>
+          <th width="20"></th>
         </tr>
       </thead>
       <tbody>
         <% @retrospective.goods.each do |good| %>
           <tr class="good">
             <td><%= good.description %></td>
+            <td><%= link_to '', retrospective_good_url(@retrospective, good), method: :delete, data: { confirm: "Tem certeza?" }, class: 'icon-remove' %></td>
           </tr>
         <% end %>
       </tbody>
