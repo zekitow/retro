@@ -10,7 +10,7 @@ class Retrospective < ActiveRecord::Base
 
   def self.add_sprint_for(user)
     retro = Retrospective.new
-    retro.sprint_number =  Retrospective.count + 1
+    retro.sprint_number =  Retrospective.where(user_id: user.id).count + 1
     retro.user_id = user.id
     retro.save
   end

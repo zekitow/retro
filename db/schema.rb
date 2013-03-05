@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904005000) do
+ActiveRecord::Schema.define(:version => 20120904008000) do
 
   create_table "bads", :force => true do |t|
     t.string   "description"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20120904005000) do
     t.integer  "retrospective_id",                    :null => false
   end
 
+  add_index "bads", ["retrospective_id"], :name => "index_bads_on_retrospective_id"
+
   create_table "goods", :force => true do |t|
     t.string   "description"
     t.datetime "created_at",       :null => false
@@ -29,12 +31,16 @@ ActiveRecord::Schema.define(:version => 20120904005000) do
     t.integer  "retrospective_id", :null => false
   end
 
+  add_index "goods", ["retrospective_id"], :name => "index_goods_on_retrospective_id"
+
   create_table "retrospectives", :force => true do |t|
     t.integer  "sprint_number"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "user_id",       :null => false
   end
+
+  add_index "retrospectives", ["user_id"], :name => "index_retrospectives_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
