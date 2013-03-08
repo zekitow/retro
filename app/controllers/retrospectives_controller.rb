@@ -8,21 +8,23 @@ class RetrospectivesController < ApplicationController
   def index
     @user = current_user
     @retrospectives = Retrospective.where(:user_id => current_user.id)
+    @retrospective = Retrospective.new
     respond_to do |format|
       format.html # index.html.erb
     end
   end
 
-  # GET /retrospectives/new
-  # GET /retrospectives/new.json
-  def new
-    @retrospectives = Retrospective.all
-    if Retrospective.add_sprint_for(@current_user)
-      notice = 'Seu novo sprint foi criado!'
+  def create
+    @retrospective = Retrospective.new(params[:retrospective])
+    @retrospective.user = @current_user
+
+    if @retrospective.save
+      notice = 'Sua nova retro foi criada!'
     else
-      notice = 'Fudeu!'
+      notice = 'LESSSS! Tente novamente.'
     end
-    redirect_to "/retrospectives", notice: notice
+
+    redirect_to '/retrospectives', notice: notice
   end
 
   # GET /retrospectives
