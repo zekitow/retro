@@ -1,12 +1,12 @@
 <ul class="breadcrumb">
   <li><%= link_to @current_user.name, retrospectives_path %> <span class="divider">/</span></li>
   <li><%= link_to 'Retrospectivas', retrospectives_path %> <span class="divider">/</span></li>
-  <li><b>Sprint # <%= @retrospective.sprint_number %></b></li>
+  <li><b><%= @retrospective.name %></b></li>
 </ul>
 <div class="row-fluid">
   <div class="span12">
     <div class="page-header">
-      <h3>Sprint # <%= @retrospective.sprint_number %></h3>
+      <h3><%= @retrospective.name %></h3>
     </div>
   </div><!--/div:span5 -->
 </div><!-- div:row -->

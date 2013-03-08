@@ -19,14 +19,14 @@
       <tbody>
         <% @retrospectives.each do |retro| %>
           <tr>
-            <td><%= link_to "sprint# #{retro.sprint_number}", retrospective_path(retro)  %></td>
+            <td><%= link_to "#{retro.name}", retrospective_path(retro)  %></td>
             <td><%= retro.try(:goods).try(:count) %></td>
             <td><%= retro.try(:bads).try(:count) %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    <%= link_to 'Nova Retrospectiva', new_retrospective_path, :class => "btn btn-inverse btn-large" %>
+    <a href="#newRetro" role="button" class="btn btn-inverse btn-large" data-toggle="modal">Nova Retrospectiva</a>
     <br />
 
   </div><!-- div:span6 -->
@@ -34,3 +34,5 @@
     <img src="/assets/moe.png"  title="<%= @current_user.name %>" alt="Ralph Steadman Artwork"/>
   </div><!-- div:span6 -->
 </div><!-- div:row -->
+
+<%= render 'new_retro' %>
