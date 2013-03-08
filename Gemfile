@@ -6,9 +6,8 @@ gem 'jquery-rails'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
- gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails'
 end
-
 
 group :development, :test do
   gem 'shoulda-matchers'
