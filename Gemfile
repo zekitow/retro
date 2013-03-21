@@ -10,6 +10,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'pry'
   gem 'shoulda-matchers'
   gem 'rspec-rails'
   gem 'guard-spork'
