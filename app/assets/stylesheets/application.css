@@ -52,3 +52,8 @@ div.actions {
 tr.warning { background-color: #FFFF99 }
 tr.bad     { background-color: #FFB6C1 }
 tr.good    { background-color: #90EE90 }
+
+td.good-desc  { max-width: 410px; word-wrap: break-word; }
+td.bad-desc   { max-width: 300px; word-wrap: break-word; min-width: 225px; }
+td.bad-action { width: 220px; word-wrap: break-word; }
+td.votes      { font-weight: bold; }
