@@ -1,24 +1,16 @@
 class VotesController < ApplicationController
   before_filter :find_retro_item
-  after_filter :add_vote_to_session
+  after_filter  :add_vote_to_session
 
   def create
-    if is_allowed_to_vote?
-      @item.update_attribute(:votes, @item.votes + 1)
-      @user_already_voted = false
-    else
-      @user_already_voted = true
-    end
+    @user_already_voted = !is_allowed_to_vote?
+    @item.update_attribute(:votes, @item.votes + 1) unless @user_already_voted
     respond_with_js
   end
 
   def destroy
-    if is_allowed_to_vote?
-      @item.update_attribute(:votes, @item.votes - 1)
-      @user_already_voted = false
-    else
-      @user_already_voted = true
-    end
+    @user_already_voted = !is_allowed_to_vote?
+    @item.update_attribute(:votes, @item.votes - 1) unless @user_already_voted
     respond_with_js
   end
 
@@ -39,4 +31,5 @@ class VotesController < ApplicationController
   def respond_with_js
     respond_to {|format| format.js }
   end
+
 end
