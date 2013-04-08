@@ -21,11 +21,11 @@ class VotesController < ApplicationController
 
   def add_vote_to_session
     session[:votes] ||= []
-    session[:votes] << [@item.class, @item.id]
+    session[:votes] << [@item.class, @item.id] unless @user_already_voted
   end
 
   def is_allowed_to_vote?
-    session[:votes].present? && !session[:votes].include?([@item.class, @item.id])
+    session[:votes].nil? || !session[:votes].include?([@item.class, @item.id])
   end
 
   def respond_with_js
