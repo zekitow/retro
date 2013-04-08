@@ -1,5 +1,5 @@
 class Bad < ActiveRecord::Base
-  attr_accessible :description, :action, :solved, :retrospective_id
+  attr_accessible :description, :action, :solved, :retrospective_id, :votes
 
   belongs_to :retrospective
 

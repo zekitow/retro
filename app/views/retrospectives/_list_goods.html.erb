@@ -8,7 +8,10 @@
       <tbody>
         <% @retrospective.goods.each do |good| %>
           <tr class="good">
-            <td><%= good.description %></td>
+            <td class="good-desc"><%= good.description %></td>
+            <td id="<%= item_votes_id(good) %>"class="votes"><%= good.votes %></td>
+            <td><%= link_to '', vote_up_url(model: good.class.to_s.downcase, id: good.id), remote: true, method: :post, class: 'icon-thumbs-up' %></td>
+            <td><%= link_to '', vote_down_url(model: good.class.to_s.downcase, id: good.id), remote: true, method: :delete, class: 'icon-thumbs-down' %></td>
             <td><%= link_to '', retrospective_good_url(@retrospective, good), method: :delete, data: { confirm: "Tem certeza?" }, class: 'icon-remove' %></td>
           </tr>
         <% end %>
