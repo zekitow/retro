@@ -9,8 +9,11 @@
       <tbody>
         <% @retrospective.bads.each do |bad| %>
           <tr class="bad">
-            <td><%= bad.description %></td>
-            <td><%= bad.action %></td>
+            <td class="bad-desc"><%= bad.description %></td>
+            <td class="bad-action"><%= bad.action %></td>
+            <td id="<%= item_votes_id(bad) %>" class="votes"><%= bad.votes %></td>
+            <td><%= link_to '', vote_up_url(model: bad.class.to_s.downcase, id: bad.id), remote: true, method: :post, class: 'icon-thumbs-up' %></td>
+            <td><%= link_to '', vote_down_url(model: bad.class.to_s.downcase, id: bad.id), remote: true, method: :delete, class: 'icon-thumbs-down' %></td>
             <td><%= link_to '', retrospective_bad_url(@retrospective, bad), method: :delete, data: { confirm: "Tem certeza?" }, class: 'icon-remove' %></td>
           </tr>
         <% end %>

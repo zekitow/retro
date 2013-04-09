@@ -1,0 +1,5 @@
+<% if @user_already_voted %>
+  alert('Você já votou neste item');
+<% else %>
+  $("#<%= item_votes_id(@item) %>").text('<%= @item.votes %>')
+<% end %>
