@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
   def current_user
     session[:user]
   end
+
+  def not_found
+    render(:file => "#{Rails.root}/public/404", formats: [:html], status: :not_found, layout: false)
+  end
+  
 end
