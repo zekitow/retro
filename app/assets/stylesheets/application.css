@@ -52,3 +52,5 @@ div.actions {
 tr.warning { background-color: #FFFF99 }
 tr.bad     { background-color: #FFB6C1 }
 tr.good    { background-color: #90EE90 }
+
+.fork-me { position: absolute; top: 0; left: 0; border: 0; }
