@@ -155,6 +155,9 @@ GEM
       railties (>= 3.1)
       therubyracer (~> 0.10.2)
     tzinfo (0.3.33)
+    uglifier (2.0.1)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
 
 PLATFORMS
   ruby
@@ -173,3 +176,4 @@ DEPENDENCIES
   shoulda-matchers
   spork
   twitter-bootstrap-rails
+  uglifier

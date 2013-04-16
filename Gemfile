@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'debugger'
 
 group :assets do
+  gem 'uglifier'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'twitter-bootstrap-rails'
 end
