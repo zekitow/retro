@@ -11,7 +11,7 @@ describe Bad do
     subject     { bad.preffix_description! }
 
     it 'should add preffix to description' do
-      subject.should eq "Nao corrigido: " + desc.to_str
+      subject.should eq "Recorrente: " + desc.to_str
     end
 
     context 'when description is nil' do

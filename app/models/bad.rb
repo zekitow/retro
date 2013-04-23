@@ -6,6 +6,6 @@ class Bad < ActiveRecord::Base
   validates :description, :action, :presence =>true
 
   def preffix_description!
-    self.description = "Nao corrigido: " + self.description unless description.nil?
+    self.description = "Recorrente: " + self.description unless description.nil?
   end
 end
