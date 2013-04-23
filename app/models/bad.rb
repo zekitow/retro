@@ -4,4 +4,8 @@ class Bad < ActiveRecord::Base
   belongs_to :retrospective
 
   validates :description, :action, :presence =>true
+
+  def preffix_description!
+    self.description = "Nao corrigido: " + self.description unless description.nil?
+  end
 end

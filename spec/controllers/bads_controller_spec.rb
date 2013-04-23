@@ -40,6 +40,11 @@ describe BadsController do
         bad.retrospective_id.should eq params_stub[:retrospective_id]
       end
 
+      it 'should preffix description' do
+       bad.should_receive(:preffix_description!).once
+       subject
+      end
+
       it 'should save bad' do
         bad.should_receive(:save).once
         subject
