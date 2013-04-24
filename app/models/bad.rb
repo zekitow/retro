@@ -5,17 +5,19 @@ class Bad < ActiveRecord::Base
   belongs_to            :retrospective
   validates             :description, :action, :times_being_kept, :presence => true
 
-  def preffix_description!
-    self.description = "Recorrente: ".concat(self.description) unless description.nil? || times_being_kept > 1
-  end
-
   def keep!
     self.times_being_kept += 1
     self.solved = false
+    self.preffix_description!
+  end
+
+  def preffix_description!
+    preffix = "Recorrente: "
+    self.description = preffix.concat(self.description) unless description.nil? || (description.include? preffix)
   end
 
   private
-    def default_values
-      self.times_being_kept ||= 0
-    end
+  def default_values
+    self.times_being_kept ||= 0
+  end
 end
