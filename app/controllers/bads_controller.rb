@@ -15,6 +15,7 @@ class BadsController < ApplicationController
     bad = Bad.find(params[:id])
     bad.retrospective_id = params[:retrospective_id]
     bad.preffix_description!
+    bad.keep!
     raise RuntimeError, 'Erro ao salvar post-it' unless bad.save
     redirect_to retrospective_path(params[:retrospective_id])
   end

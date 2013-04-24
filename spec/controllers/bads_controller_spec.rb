@@ -17,7 +17,6 @@ describe BadsController do
 
       its(:status)	{ should eq 500 }
       its(:body)	{ should include "Error" }
-
     end
 
     context "with valid attributes" do
@@ -42,6 +41,11 @@ describe BadsController do
 
       it 'should preffix description' do
        bad.should_receive(:preffix_description!).once
+       subject
+      end
+
+      it 'should call keep method' do
+       bad.should_receive(:keep!).once
        subject
       end
 
