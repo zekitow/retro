@@ -7,12 +7,22 @@
       </thead>
       <tbody>
         <% @retrospective.goods.each do |good| %>
-          <tr class="good">
+          <tr class="good" id="good-<%= good.id %>">
             <td class="good-desc"><%= good.description %></td>
             <td id="<%= item_votes_id(good) %>"class="votes"><%= good.votes %></td>
-            <td><%= link_to '', vote_up_url(model: good.class.to_s.downcase, id: good.id), remote: true, method: :post, class: 'icon-thumbs-up' %></td>
-            <td><%= link_to '', vote_down_url(model: good.class.to_s.downcase, id: good.id), remote: true, method: :delete, class: 'icon-thumbs-down' %></td>
-            <td><%= link_to '', retrospective_good_url(@retrospective, good), method: :delete, data: { confirm: "Tem certeza?" }, class: 'icon-remove' %></td>
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">Ações <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Gostei', vote_up_url(model: good.class.to_s.downcase, id: good.id), remote: true, method: :post %></li>
+                  <li><%= link_to 'Não Gostei', vote_down_url(model: good.class.to_s.downcase, id: good.id), remote: true, method: :delete %></li>
+                  <li>
+                    <input type="hidden" value="<%= good.id %>" />
+                    <a href="#delete-good" data-toggle="modal" class="btn-delete-good">Excluir</a>
+                  </li>
+                </ul>
+              </div>
+            </td>
           </tr>
         <% end %>
       </tbody>

@@ -33,6 +33,8 @@ class BadsController < ApplicationController
   def destroy
     bad = Bad.find(params[:id])
     bad.destroy
-    redirect_to retrospective_path(params[:retrospective_id])
+    respond_to do |format|
+      format.json { render :json => bad }
+    end
   end
 end

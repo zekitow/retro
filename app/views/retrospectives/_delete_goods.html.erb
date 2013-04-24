@@ -1,0 +1,14 @@
+<%= form_for([@retrospective, @good], {remote: true, method: :delete, html: {name: "delete_good", id: "delete_good"}}) do |f| %>
+    <div id="delete-good" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4>Excluir Registro</h4>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja apagar o registro?</p>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Excluir", class: "btn btn-primary", type: "submit" %>
+      </div>
+    </div>
+<% end %>
