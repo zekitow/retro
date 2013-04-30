@@ -3,6 +3,16 @@
   <li><%= link_to 'Retrospectivas', retrospectives_path %> <span class="divider">/</span></li>
   <li><b><%= @retrospective.name %></b></li>
 </ul>
+<div class="alert alert-error hide" id="retrospectives-alert-error">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4></h4>
+  <p></p>
+</div>
+<div class="alert alert-success hide" id="retrospectives-alert-success">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4></h4>
+  <p></p>
+</div>
 <div class="row-fluid">
   <div class="span12">
     <div class="page-header">
@@ -25,3 +35,5 @@
 
 <%= render 'new_good' %>
 <%= render 'new_bad' %>
+<%= render 'delete_goods' %>
+<%= render 'delete_bads' %>
