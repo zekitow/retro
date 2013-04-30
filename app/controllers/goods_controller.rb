@@ -18,7 +18,9 @@ class GoodsController < ApplicationController
   def destroy
     good = Good.find(params[:id])
     good.destroy
-    redirect_to retrospective_path(params[:retrospective_id])
+    respond_to do |format|
+       format.json { render :json => good }
+    end
   end
 
 end
