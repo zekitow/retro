@@ -10,7 +10,11 @@ class GoodsController < ApplicationController
     redirect_to retrospective_path(params[:retrospective_id])
   end
 
-  # DELETE /bads
+  # PUT /goods
+  def update
+  end
+
+  # DELETE /goods
   def destroy
     good = Good.find(params[:id])
     good.destroy

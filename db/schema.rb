@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130405153655) do
     t.datetime "updated_at",                          :null => false
     t.integer  "retrospective_id",                    :null => false
     t.integer  "votes",            :default => 0
+    t.integer  "times_being_kept"
   end
 
   add_index "bads", ["retrospective_id"], :name => "index_bads_on_retrospective_id"

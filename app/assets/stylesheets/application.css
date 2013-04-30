@@ -57,3 +57,4 @@ td.good-desc  { width: 410px; word-wrap: break-word; }
 td.bad-desc   { max-width: 300px; word-wrap: break-word; min-width: 225px; }
 td.bad-action { width: 220px; word-wrap: break-word; }
 td.votes      { font-weight: bold; }
+.fork-me { position: absolute; top: 0; left: 0; border: 0; }
