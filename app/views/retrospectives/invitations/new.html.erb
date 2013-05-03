@@ -1,0 +1,33 @@
+<ul class="breadcrumb">
+  <li><%= link_to @current_user.name, retrospectives_path %> <span class="divider">/</span></li>
+  <li><%= link_to "Retrospectivas", user_retrospectives_path(@current_user) %> <span class="divider">/</span></li>
+  <li><b>Convidar</b></li>
+</ul>
+<%= form_tag retrospective_invitations_path, :method => :post do %>
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="page-header">
+        <h3>Convidar para <%= @retrospective.name %></h3>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Convidado</th>
+            <th>Usuário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% (User.all - [@current_user]).each do |user| %>
+            <tr>
+              <td><%= check_box_tag 'users_id[]', user.id, @retrospective.invited_users.include?(user) %></td>
+              <td><%= user.email %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br />
+    </div><!-- div:span6 -->
+  </div><!-- div:row -->
+  <%= submit_tag "Salvar", class: "btn btn-primary btn-inverse" %>
+<% end %>
+

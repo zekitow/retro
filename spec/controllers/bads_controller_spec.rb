@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe BadsController do
 
-  before(:each) { controller.session[:user] = FactoryGirl.build(:user) }
+  before(:each) { controller.session[:user_id] = FactoryGirl.create(:user).id }
 
   describe "GET keep" do
     subject { post :keep, retrospective_id: params_stub[:retrospective_id], id: params_stub[:id] }

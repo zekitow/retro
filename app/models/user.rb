@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
 
   has_many :retrospectives
 
+  has_and_belongs_to_many :invited_retrospectives,
+                          :class_name => "Retrospective",
+                          :join_table => "users_retrospectives",
+                          :association_foreign_key => "retrospective_id"
+
   before_create :encrypt_password
 
   validates :email,    :presence =>true, :uniqueness=>true

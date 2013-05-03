@@ -18,6 +18,10 @@
     <div class="page-header">
       <h3><%= @retrospective.name %></h3>
       <%#= link_to "Enviar", retrospective_send_email_path(@retrospective), :role => "button", :class => "btn btn-small btn-primary", "data-toggle" =>"modal" %>
+      <% if @retrospective.start_at.present? %>
+        <b>Inicio</b> <em><%= best_in_place @retrospective, :start_at, type: :date, display_with: lambda{|value| l value } %></em>
+        <b>Termino</b> <em><%= best_in_place @retrospective, :finish_at, type: :date, display_with: lambda{|value| l value } %></em>
+      <% end %>
     </div>
   </div><!--/div:span5 -->
 </div><!-- div:row -->

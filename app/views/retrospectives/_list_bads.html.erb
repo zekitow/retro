@@ -9,8 +9,8 @@
       <tbody>
         <% @retrospective.bads.each do |bad| %>
           <tr class="bad" id="bad-<%= bad.id %>">
-            <td class="bad-desc"><%= bad.description %></td>
-            <td class="bad-action"><%= bad.action %></td>
+            <td class="bad-desc"><%= best_in_place bad, :description, type: :input, path: retrospective_bad_path(@retrospective, bad) %></td>
+            <td class="bad-action"><%= best_in_place bad, :action, type: :input, path: retrospective_bad_path(@retrospective, bad) %></td>
             <td id="<%= item_votes_id(bad) %>" class="votes"><%= bad.votes %></td>
             <td>
               <div class="btn-group">

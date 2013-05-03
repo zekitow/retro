@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'jquery-rails'
 gem 'debugger'
 gem 'mailtrap'
+gem 'best_in_place'
 
 group :assets do
   gem 'uglifier'

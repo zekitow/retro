@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if !params[:user][:password].blank? and @user.save
-        session[:user] = @user
+        session[:user_id] = @user.id
         format.html { redirect_to "/retrospectives", notice: 'Sua senha foi alterada!' }
       else
         format.html { render action: "password", notice: 'Suas senhas não conferem!' }
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
     user = User.authenticate(params[:email], params[:password])
 
     if user
-      session[:user] = user
+      session[:user_id] = user.id
       redirect_to "/retrospectives", notice: "Olá #{user.name}, bem vindo ao Fosformol!"
     else
       redirect_to root_url, notice: 'Usuário ou senha inválida'
@@ -92,7 +92,7 @@ class UsersController < ApplicationController
   def logout
     user = User.find(current_user.id)
     user.save
-    session[:user] = nil
+    session[:user_id] = nil
     redirect_to root_url, :alert => "Obrigado por ter usado o Fosformol!"
   end
 

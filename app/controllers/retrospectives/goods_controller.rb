@@ -1,20 +1,12 @@
-# encoding : utf-8
-class GoodsController < ApplicationController
-
+class Retrospectives::GoodsController < ApplicationController
   before_filter :ensure_authentication
 
-  # POST /goods
   def create
     good = Good.new(params[:good])
     good.save
     redirect_to retrospective_path(params[:retrospective_id])
   end
 
-  # PUT /goods
-  def update
-  end
-
-  # DELETE /goods
   def destroy
     good = Good.find(params[:id])
     good.destroy
@@ -23,4 +15,12 @@ class GoodsController < ApplicationController
     end
   end
 
+  def update
+    good = Good.find(params[:id])
+    if good.update_attributes(params[:good])
+      head :ok
+    else
+      head :error
+    end
+  end
 end

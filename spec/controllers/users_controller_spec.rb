@@ -14,7 +14,7 @@ describe UsersController do
 
   before(:each) do
     user = User.new(valid_attributes)
-    controller.session[:user] = user
+    controller.session[:user_id] = user.id
   end
 
   describe "GET index" do
@@ -121,7 +121,7 @@ describe UsersController do
     it "assigns the requested user as @user" do
       user = User.create! valid_attributes
       get :password, {}
-      assigns(:user).should eq(controller.session[:user])
+      user.id.should eq(controller.session[:user_id])
     end
   end
 

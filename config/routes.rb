@@ -10,8 +10,9 @@ RetroRails::Application.routes.draw do
   end
 
   resources :retrospectives do
-    resources :goods
-    resources :bads
+    resources :goods     , :controller => "retrospectives/goods"
+    resources :bads      , :controller => "retrospectives/bads"
+    resource :invitations, :controller => "retrospectives/invitations"
   end
 
   get "/retrospectives/send_email/:id" => "retrospectives#send_email", as: :retrospective_send_email

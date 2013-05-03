@@ -7,7 +7,7 @@ class RetrospectivesController < ApplicationController
   # GET /retrospectives.json
   def index
     @user = current_user
-    @retrospectives = Retrospective.where(:user_id => current_user.id)
+    @retrospectives = (@user.invited_retrospectives + @user.retrospectives)
     @retrospective = Retrospective.new
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +25,12 @@ class RetrospectivesController < ApplicationController
     end
 
     redirect_to '/retrospectives', notice: notice
+  end
+
+  def update
+    @retrospective = Retrospective.find(params[:id])
+    @retrospective.update_attributes(params[:retrospective])
+    head :ok
   end
 
   # GET /retrospectives
