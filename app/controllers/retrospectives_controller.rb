@@ -27,6 +27,12 @@ class RetrospectivesController < ApplicationController
     redirect_to '/retrospectives', notice: notice
   end
 
+  def update
+    @retrospective = Retrospective.find(params[:id])
+    @retrospective.update_attributes(params[:retrospective])
+    head :ok
+  end
+
   # GET /retrospectives
   # GET /retrospectives.json
   def show

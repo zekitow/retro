@@ -1,7 +1,7 @@
 # encoding : utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  rescue_from Exception, with: :internal_error
+  #rescue_from Exception, with: :internal_error
 
   def ensure_authentication
     if not session[:user_id]

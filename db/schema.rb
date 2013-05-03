@@ -12,7 +12,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20130503185601) do
-
   create_table "bads", :force => true do |t|
     t.string   "description"
     t.string   "action"
@@ -43,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20130503185601) do
     t.string   "name",                         :null => false
     t.string   "rally_ref"
     t.boolean  "enabled",    :default => true
+    t.date     "start_at"
+    t.date     "finish_at"
   end
 
   add_index "retrospectives", ["user_id"], :name => "index_retrospectives_on_user_id"
