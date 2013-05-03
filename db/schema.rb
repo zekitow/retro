@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130503164645) do
+ActiveRecord::Schema.define(:version => 20130503185601) do
 
   create_table "bads", :force => true do |t|
     t.string   "description"
@@ -37,11 +37,12 @@ ActiveRecord::Schema.define(:version => 20130503164645) do
   add_index "goods", ["retrospective_id"], :name => "index_goods_on_retrospective_id"
 
   create_table "retrospectives", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "user_id",    :null => false
-    t.string   "name",       :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "user_id",                      :null => false
+    t.string   "name",                         :null => false
     t.string   "rally_ref"
+    t.boolean  "enabled",    :default => true
   end
 
   add_index "retrospectives", ["user_id"], :name => "index_retrospectives_on_user_id"
