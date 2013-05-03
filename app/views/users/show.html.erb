@@ -1,0 +1,22 @@
+<ul class="breadcrumb">
+  <li><%= link_to @current_user.name, retrospectives_path %> <span class="divider">/</span></li>
+  <li><%= link_to 'Retrospectivas', retrospectives_path %> <span class="divider">/</span></li>
+  <li><b><%= @user.name %></b></li>
+</ul>
+<div class="alert alert-error hide" id="retrospectives-alert-error">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4></h4>
+  <p></p>
+</div>
+<div class="alert alert-success hide" id="retrospectives-alert-success">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4></h4>
+  <p></p>
+</div>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="page-header">
+      <h3><%= @user.name %></h3>
+    </div>
+  </div><!--/div:span5 -->
+</div><!-- div:row -->

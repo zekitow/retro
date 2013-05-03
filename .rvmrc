@@ -1,1 +1,2 @@
-rvm --create use 1.9.3@retro
+rvm use --create 1.9.3@retrozek
+

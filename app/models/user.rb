@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :logged_at, :name, :password, :password_confirmation
+  attr_accessible :email, :logged_at, :name, :password, :password_confirmation, :admin
 
   has_many :retrospectives
 

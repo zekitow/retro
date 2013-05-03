@@ -1,0 +1,28 @@
+<%= form_for @user do |u| %>
+    <div id="newUser" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h2>Novo Usuário</h2>
+    </div>
+    <div class="modal-body">
+        <% if @user.errors.any? %>
+          <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>Atenção!</h4>
+            Os seguintes erros foram encontrados:
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <%= u.text_field :name, class: "span5", value: "" %>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Salvar", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

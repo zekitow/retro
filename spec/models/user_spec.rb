@@ -7,7 +7,6 @@ describe User do
   it { should validate_presence_of(:password) }
 
   describe ".authenticate" do
-
     let(:attrs) {
       {
         :email => "zekitow@gmail.com",
@@ -24,6 +23,7 @@ describe User do
       subject { User.authenticate('zekitow@gmail.com','123456') }
       it { should_not be_nil }
     end
+
     context "when user and password is invalid" do
       subject { User.authenticate('zekitow@gmail.com.br','xxxxx') }
       it { should be_nil }

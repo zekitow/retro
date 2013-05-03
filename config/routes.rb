@@ -1,5 +1,7 @@
 RetroRails::Application.routes.draw do
 
+  get "user/index"
+
   root :to => "home#index"
 
   resources :retrospectives
