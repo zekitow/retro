@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'mysql2'
 gem 'jquery-rails'
 gem 'debugger'
+gem 'best_in_place'
 
 group :assets do
   gem 'uglifier'
