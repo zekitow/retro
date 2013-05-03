@@ -18,7 +18,7 @@ describe UsersController do
   end
 
   describe "GET index" do
-    xit "assigns logged user" do
+    it "assigns logged user" do
       user = User.create! valid_attributes
       get :index, {}
       assigns(:user).should_not be_nil

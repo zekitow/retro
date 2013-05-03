@@ -1,0 +1,85 @@
+<div class="alert alert-error hide" id="retrospectives-alert-error">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4></h4>
+  <p></p>
+</div>
+<div class="alert alert-success hide" id="retrospectives-alert-success">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4></h4>
+  <p></p>
+</div>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="page-header">
+      <h3><%= @retrospective.name %></h3>
+    </div>
+  </div><!--/div:span5 -->
+</div><!-- div:row -->
+
+<div class="row-fluid">
+  <div class="span6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th width="20"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @retrospective.goods.each do |good| %>
+          <tr class="good" id="good-<%= good.id %>">
+            <td class="good-desc"><%= good.description %></td>
+            <td id="<%= "votes-#{good.class.to_s.downcase}-#{good.id}" %>"class="votes"><%= good.votes %></td>
+            <td>
+              <div class="btn-group">
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Gostei', vote_up_url(model: good.class.to_s.downcase, id: good.id), remote: true, method: :post %></li>
+                  <li><%= link_to 'Não Gostei', vote_down_url(model: good.class.to_s.downcase, id: good.id), remote: true, method: :delete %></li>
+                  <li>
+                    <input type="hidden" value="<%= good.id %>" />
+                    <a href="#delete-good" data-toggle="modal" class="btn-delete-good">Excluir</a>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div><!-- div:span6 -->
+  <div class="span6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Ação</th>
+          <th width="20"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @retrospective.bads.each do |bad| %>
+          <tr class="bad" id="bad-<%= bad.id %>">
+            <td class="bad-desc"><%= bad.description %></td>
+            <td class="bad-action"><%= bad.action %></td>
+            <td id="<%= "votes-#{bad.class.to_s.downcase}-#{bad.id}" %>"class="votes"><%= bad.votes %></td>
+            <td>
+              <div class="btn-group">
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Gostei', vote_up_url(model: bad.class.to_s.downcase, id: bad.id), remote: true, method: :post %></li>
+                  <li><%= link_to 'Não Gostei', vote_down_url(model: bad.class.to_s.downcase, id: bad.id), remote: true, method: :delete %></li>
+                  <li>
+                    <input type="hidden" value="<%= bad.id %>" />
+                    <a href="#delete-bad" data-toggle="modal" class="btn-delete-bad">Excluir</a>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div><!-- div:span6 -->
+</div><!-- div:row -->
+

@@ -14,6 +14,8 @@ RetroRails::Application.routes.draw do
     resources :bads
   end
 
+  get "/retrospectives/send_email/:id" => "retrospectives#send_email", as: :retrospective_send_email
+  get "/retrospectives/preview_email/:id" => "retrospectives#preview_email", as: :retrospective_preview_email
 
   post   "/votes/:model/:id" => "votes#create", as: :vote_up
   delete "/votes/:model/:id" => "votes#destroy", as: :vote_down

@@ -14,7 +14,7 @@ RetroRails::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -34,4 +34,14 @@ RetroRails::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.action_mailer.default_url_options = { :host => "dev.retrospectiba.com" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "mailtrap.io",
+    :port                 => 2525,
+    :user_name            => 'fosformol-a50f2648ea12df6b',
+    :password             => '8252459c6e3b1b22',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true
+  }
 end

@@ -36,4 +36,21 @@ class RetrospectivesController < ApplicationController
     @good = Good.new
     @bad  = Bad.new
   end
+
+  def preview_email
+    @retrospective = Retrospective.find(params[:id])
+    @worst = Retrospective.where(:id => params[:id]).first
+    render '/retrospective_mailer/retrospective_resume.html.erb', :layout => 'mail'
+  end
+
+  def send_email
+    begin
+      RetrospectiveMailer.retrospective_resume(params[:id]).deliver
+      flash[:notice] = 'Mensagem enviada com sucesso'
+    rescue
+      flash[:error] = 'Um erro ocorreu! Abra um chamado aê, leke!'
+    end
+
+    redirect_to retrospective_path(params[:id])
+  end
 end

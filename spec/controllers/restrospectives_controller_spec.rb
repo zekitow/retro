@@ -32,4 +32,31 @@ describe RetrospectivesController do
       end
     end
   end
+
+  describe 'GET #send_email' do
+    subject { get "send_email", :id => retrospective.id  }
+    let(:retrospective) { FactoryGirl.create(:retrospective, :user => FactoryGirl.create(:user)) }
+
+    context "when fails to send an email" do
+      before do
+        RetrospectiveMailer.stub(:retrospective_resume).stub(:deliver).and_raise("Exception")
+        subject
+      end
+
+      it "should return flash message" do
+        flash[:error].should eql('Um erro ocorreu! Abra um chamado aê, leke!')
+      end
+    end
+
+    context 'when successfull send email' do
+      before do
+        RetrospectiveMailer.stub_chain(:retrospective_resume, :deliver).and_return(nil)
+        subject
+      end
+
+      it "should return flash message" do
+        flash[:notice].should eql("Mensagem enviada com sucesso")
+      end
+    end
+  end
 end
