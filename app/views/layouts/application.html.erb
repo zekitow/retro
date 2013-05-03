@@ -4,7 +4,6 @@
     <title>Fosformol</title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "controllers/" + params[:controller] if File.exists?("#{Rails.root}/app/assets/javascripts/controllers/#{params[:controller]}.js") %>
     <%= csrf_meta_tags %>
   </head>
   <body>

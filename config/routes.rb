@@ -12,6 +12,7 @@ RetroRails::Application.routes.draw do
   resources :retrospectives do
     resources :goods
     resources :bads
+    resource :invitations, :controller => "retrospectives/invitations"
   end
 
 

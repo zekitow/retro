@@ -22,6 +22,9 @@
             <td><%= link_to "#{retro.name}", retrospective_path(retro)  %></td>
             <td><%= retro.try(:goods).try(:count) %></td>
             <td><%= retro.try(:bads).try(:count) %></td>
+            <% if @current_user.retrospectives.include?(retro) %>
+              <td><%= link_to "Participantes", new_retrospective_invitations_path(:retrospective_id => retro.id), :class => 'btn btn-small' %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

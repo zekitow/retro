@@ -7,7 +7,7 @@ class RetrospectivesController < ApplicationController
   # GET /retrospectives.json
   def index
     @user = current_user
-    @retrospectives = Retrospective.where(:user_id => current_user.id)
+    @retrospectives = (@user.invited_retrospectives + @user.retrospectives)
     @retrospective = Retrospective.new
     respond_to do |format|
       format.html # index.html.erb
