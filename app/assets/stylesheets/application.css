@@ -17,6 +17,7 @@ body, body#home { background:url('/assets/bg-grey-wood.jpg') repeat #333;}
 
 footer {color:#DDD;text-align:center}
 body#home a {color: #08C;text-decoration: none;background:transparent;}
+body#home .label-important a, .label-important a {color: white }
 
 .content {background-color:white;padding: 30px;webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;-webkit-border-radius: 6px;-moz-border-radius: 6px;}
 .center {text-align:center}

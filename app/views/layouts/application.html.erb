@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fosformol</title>
+    <title>Retrospectiba</title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-40782711-1', 'retrospectiba.com');
+      ga('send', 'pageview');
+    </script>
   </head>
   <body>
     <div class="navbar navbar-fixed-top">
@@ -15,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to 'Fosformol', retrospectives_path, :class => "brand" %>
+          <%= link_to 'Retrospectiba', retrospectives_path, :class => "brand" %>
           <div class="nav-collapse">
             <ul class="nav pull-right">
               <li class="divider-vertical"></li>
@@ -48,7 +56,10 @@
     <footer>
       <div class="container">
         <br/>
-        <p><span class="label label-info">abril@open-friday</span></p>
+        <p>
+          <span class="label label-info">www.retrospectiba.com</span>
+          <span class="label label-important"><a href="https://github.com/zekitow/retro/network/members" target="_blank">contribuidores</a></span>
+        </p>
       </div><!-- /div:container-->
     </footer>
   </body>
