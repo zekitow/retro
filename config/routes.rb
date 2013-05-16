@@ -21,8 +21,8 @@ RetroRails::Application.routes.draw do
   post   "/votes/:model/:id" => "votes#create", as: :vote_up
   delete "/votes/:model/:id" => "votes#destroy", as: :vote_down
 
-  get "/retrospectives/:retrospective_id/bads/:id/keep" => "bads#keep", as: :retrospective_bad_keeps
-  get "/retrospectives/:retrospective_id/bads/:id/good" => "bads#to_good", as: :retrospective_bad_to_good
+  get "/retrospectives/:retrospective_id/bads/:id/keep" => "Retrospectives::bads#keep", as: :retrospective_bad_keeps
+  get "/retrospectives/:retrospective_id/bads/:id/good" => "Retrospectives::bads#to_good", as: :retrospective_bad_to_good
 
   match "/signup"          => "users#new"
   match "/signin"          => "users#authenticate"
