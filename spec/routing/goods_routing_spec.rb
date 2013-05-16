@@ -1,7 +1,7 @@
 # encoding : utf-8
 require "spec_helper"
 
-describe GoodsController do
+describe Retrospectives::GoodsController do
   describe 'routing' do
 
     it "routes to #create" do

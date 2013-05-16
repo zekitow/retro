@@ -1,7 +1,7 @@
 # encoding : utf-8
 require 'spec_helper'
 
-describe BadsController do
+describe Retrospectives::BadsController do
 
   before(:each) { controller.session[:user_id] = FactoryGirl.create(:user).id }
 
@@ -24,7 +24,7 @@ describe BadsController do
       let(:bad)		{ Bad.new(:id => params_stub[:id], :retrospective_id => params_stub[:retrospective_id]) }
 
       before do
-        BadsController.stub(:params).and_return(params_stub)
+        Retrospectives::BadsController.stub(:params).and_return(params_stub)
         Bad.stub(:find).with(params_stub[:id]).and_return(bad)
         bad.stub(:save).and_return(true)
       end
