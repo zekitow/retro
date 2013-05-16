@@ -24,6 +24,8 @@
             <td><%= retro.try(:bads).try(:count) %></td>
             <% if @current_user.retrospectives.include?(retro) %>
               <td><%= link_to "Participantes", new_retrospective_invitations_path(:retrospective_id => retro.id), :class => 'btn btn-small' %></td>
+            <% else %>
+              <td>Convidado por <%= retro.user.name %></td>
             <% end %>
           </tr>
         <% end %>
