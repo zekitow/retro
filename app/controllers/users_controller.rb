@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 
     if user
       session[:user] = user
-      redirect_to "/retrospectives", notice: "Olá #{user.name}, bem vindo ao Retrospectiba!"
+      redirect_to "/retrospectives", notice: "Olá #{user.name}, bem vindo ao Retrospectiva!"
     else
       redirect_to root_url, notice: 'Usuário ou senha inválida'
     end
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
     user = User.find(current_user.id)
     user.save
     session[:user] = nil
-    redirect_to root_url, :alert => "Obrigado por ter usado o Retrospectiba!"
+    redirect_to root_url, :alert => "Obrigado por ter usado o Retrospectiva!"
   end
 
 end
